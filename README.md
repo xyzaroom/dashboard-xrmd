@@ -1,1 +1,1 @@
-# events
+# EVENTS
