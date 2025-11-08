@@ -1,183 +1,121 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xyzaroom Direct Dashboard</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Xyzaroom Dashboard</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #121212; /* Warna gelap khas Spotify */
+  }
 
-        /* Header Styles */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+  /* Sidebar */
+  .sidebar {
+    width: 240px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.5em;
-        }
+  .sidebar h2 {
+    color: #1db954;
+    margin-top: 0;
+    font-size: 1.2em;
+  }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+  .menu {
+    margin-top: 30px;
+  }
 
-        nav ul li {
-            margin-left: 15px;
-        }
+  .menu a {
+    display: block;
+    color: #b3b3b3;
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 1em;
+  }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+  .menu a:hover {
+    color: #fff;
+  }
 
-        /* Main Styles */
-        main {
-            flex: 1;
-            background-color: #ecf0f1;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
+  /* Main Content */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
-        /* Slider container */
-        .slider {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
+  /* Header */
+  .header {
+    height: 60px;
+    background-color: #121212;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: #fff;
+    font-size: 1.2em;
+  }
 
-        /* Slides */
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+  /* Content Area */
+  .content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    color: #fff;
+  }
 
-        /* Active slide */
-        .slide.active {
-            display: block;
-        }
+  /* Placeholder content style */
+  .section {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
 
-        /* Footer Styles */
-        footer {
-            background-color: #34495e;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9em;
-        }
+  /* Footer (optional) */
+  /* ... */
 
-        /* Button styles */
-        button {
-            padding: 8px 12px;
-            background-color: #2980b9;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #3498db;
-        }
-    </style>
+</style>
 </head>
 <body>
 
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>XYZAROOM</h2>
+    <div class="menu">
+      <a href="#">Beranda</a>
+      <a href="#">Upload</a>
+      <a href="#">Metadata</a>
+      <a href="#">Distribusi</a>
+      <a href="#">Gambar</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
     <!-- Header -->
-    <header>
-        <h1>Xyzaroom Direct</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Bantuan</a></li>
-                <li><a href="#">Tentang Kami</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Main Content (Slider) -->
-    <main>
-        <div class="slider" id="slider">
-            <!-- Slide 1 -->
-            <div class="slide active" id="slide1">
-                <h2>Interface Upload</h2>
-                <p>Area untuk upload file audio dan artwork 3000x3000.</p>
-            </div>
-            <!-- Slide 2 -->
-            <div class="slide" id="slide2">
-                <h2>Metadata & Data Album</h2>
-                <p>Form metadata dan daftar toko digital.</p>
-            </div>
-            <!-- Slide 3 -->
-            <div class="slide" id="slide3">
-                <h2>Ceklis Toko & Teritori</h2>
-                <p>Daftar toko yang dipilih dan distribusi wilayah.</p>
-            </div>
-            <!-- Slide 4 -->
-            <div class="slide" id="slide4">
-                <h2>Upload Gambar 3000x3000</h2>
-                <p>Preview dan upload gambar artwork.</p>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div>
-            &copy; 2024 Xyzaroom. All rights reserved.
-        </div>
-        <div>
-            <button id="logoutBtn">Logout</button>
-        </div>
-    </footer>
-
-    <!-- Script untuk otomatis berganti slide -->
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        // Otomatis berganti slide setiap 5 detik
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
-
-        // Event handler Logout
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-            alert('Logout!');
-            // Tambahkan logika logout di sini
-        });
-    </script>
+    <div class="header">
+      Dashboard
+    </div>
+    <!-- Content -->
+    <div class="content">
+      <div class="section">
+        <h3>Selamat Datang di Dashboard</h3>
+        <p>Ini adalah tampilan utama yang terinspirasi dari Spotify Web.</p>
+      </div>
+      <div class="section">
+        <h3>Konten Utama</h3>
+        <p>Anda bisa menambahkan bagian-bagian lain seperti daftar lagu, playlist, dan lainnya di sini.</p>
+      </div>
+    </div>
+  </div>
 
 </body>
-  </html>
+</html>
